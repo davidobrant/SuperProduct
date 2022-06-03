@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import './card.css';
+@import './wish-list.css';
+
+*, 
+*::before, 
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-clr: whitesmoke;
+    --box-shadow: 2px 2px 12px 8px rgba(0,0,0,.1);
+}
+
+body {
+    min-height: 100vh;
+    width: 100vw;
+    background: var(--bg-clr);
+    font-family: 'Montserrat', sans-serif;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    overflow-x: hidden;
+}
+
+.page-title {
+    padding: 1rem;
+}
+
+.product-list-container {
+    display: grid;
+    gap: 1rem;
+}
+
+@media screen and (min-width: 480px) {
+    
+    .product-list-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 768px) {
+    
+    .product-list-container {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    
+    .product-list-container {
+        /* grid-template-columns: repeat(4, 1fr); */
+        gap: 3rem;
+    }
+}

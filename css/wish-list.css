@@ -1,0 +1,43 @@
+.wish-list-container {
+    margin-top: 3rem;
+    text-align: center;
+    min-height: 4rem;
+}
+
+.wish-list-container h3 {
+    margin-bottom: 1rem;
+}
+
+.wish-list {
+    list-style: none;
+}
+
+.wish-list-item {
+    padding: .2rem;
+    padding-right: 1.6rem;
+    position: relative;
+}
+
+.wish-list-item-details {
+    font-size: .8rem;
+    font-weight: 600;
+}
+
+.wish-list-item:hover .delete-button {
+    visibility: visible;
+}
+
+.delete-button {
+    visibility: hidden;
+    height: 1rem;
+    aspect-ratio: 1;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(-50%, -50%);
+}
+
+.total-price {
+    padding: 1rem;
+    margin-top: 2rem;
+}
