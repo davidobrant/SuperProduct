@@ -41,7 +41,7 @@
 .change-amount {
     visibility: hidden;
     height: 1rem;
-    width: 3rem;
+    width: 3.6rem;
     aspect-ratio: 1;
     position: absolute;
     top: 50%;
@@ -57,9 +57,10 @@
     text-align: center;
     display: grid;
     place-content: center;
+    cursor: pointer;
 }
 
 .change-amount span {
-    width: 1.2rem;
+    width: 1.6rem;
     aspect-ratio: 1;
 }
