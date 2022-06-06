@@ -2,6 +2,7 @@
     margin-top: 3rem;
     text-align: center;
     min-height: 4rem;
+    width: 100%;
 }
 
 .wish-list-container h3 {
@@ -11,12 +12,18 @@
 .wish-list {
     list-style: none;
     margin-bottom: 4rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .wish-list-item {
     padding: .2rem;
-    padding-right: 1.6rem;
+    padding-right: 3rem;
     position: relative;
+    width: 300px;
 }
 
 .wish-list-item-details {
@@ -24,18 +31,35 @@
     font-weight: 600;
 }
 
-.wish-list-item:hover .delete-button {
+.wish-list-item:hover .change-amount {
     visibility: visible;
 }
+.wish-list-item:hover .wish-list-item-details {
+    visibility: hidden;
+}
 
-.delete-button {
+.change-amount {
     visibility: hidden;
     height: 1rem;
+    width: 3rem;
     aspect-ratio: 1;
     position: absolute;
     top: 50%;
     right: 0;
     transform: translate(-50%, -50%);
     cursor: pointer;
+    display: flex;
 }
 
+.change-amount button {
+    height: 1.2rem;
+    width: 1.2rem;
+    text-align: center;
+    display: grid;
+    place-content: center;
+}
+
+.change-amount span {
+    width: 1.2rem;
+    aspect-ratio: 1;
+}

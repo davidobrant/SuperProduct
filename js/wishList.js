@@ -18,14 +18,30 @@ export const renderWishList = () => {
             listItemDetails.innerText = `x ${item.amount}`
             listItem.append(listItemDetails)
             
-            const deleteButton = document.createElement('span');
-            deleteButton.classList.add('delete-button');
-            const trashIcon = document.createElement('img')
-            trashIcon.setAttribute('src', './icons/trash-can-solid.svg')
-            deleteButton.append(trashIcon)
-            deleteButton.onclick = () => { deleteItem(item.id) }
-            listItem.append(deleteButton)
-            
+            /* ----- Change Amount ----- */
+            const changeAmount = document.createElement('div')
+            changeAmount.classList.add('change-amount')
+
+            const amount = document.createElement('span')
+            amount.innerText = item.amount
+
+            const addOne = document.createElement('button')
+            addOne.innerText = '+';
+            addOne.onclick = () => {
+                addItem(item.id)
+            }
+            const subOne = document.createElement('button')
+            subOne.innerText = '-';
+            subOne.onclick = () => {
+                deleteItem(item.id)
+            }
+
+            changeAmount.append(subOne)
+            changeAmount.append(amount)
+            changeAmount.append(addOne)
+
+            listItem.append(changeAmount)
+
             wishList.append(listItem)
         }
     })
