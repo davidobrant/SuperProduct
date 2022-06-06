@@ -1,13 +1,13 @@
 import { store } from '../data/store.js';
 
 const wishList = document.querySelector('[data-wish-list]')
-const LOCAL_STORAGE_KEY_WISHLIST = 'wish-list.basket';
-let itemsInBasket = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_WISHLIST)) || store 
+const LOCAL_STORAGE_KEY_WISHLIST = 'wish-list.cart';
+let itemsInCart = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_WISHLIST)) || store 
 
 export const renderWishList = () => {
     wishList.innerHTML = '';
 
-    itemsInBasket.forEach(item => {
+    itemsInCart.forEach(item => {
         if (item.amount > 0) {
             const listItem = document.createElement('li')
             listItem.classList.add('wish-list-item')
@@ -48,7 +48,7 @@ export const renderWishList = () => {
 }
 
 export const deleteItem = (id) => {
-    const item = itemsInBasket.find(item => item.id === id)
+    const item = itemsInCart.find(item => item.id === id)
     item.amount--
     saveToLocalStorage()
     renderWishList()
@@ -56,7 +56,7 @@ export const deleteItem = (id) => {
 }
 
 export const addItem = (id) => {
-    const item = itemsInBasket.find(item => item.id === id)
+    const item = itemsInCart.find(item => item.id === id)
     item.amount++
     saveToLocalStorage()
     renderWishList()
@@ -67,12 +67,12 @@ export const updatePrice = () => {
     const totalPriceText = document.querySelector('[data-total-price-text]')
     let total = 0;
     totalPriceText.innerHTML = '';
-    itemsInBasket.forEach(item => {
+    itemsInCart.forEach(item => {
         total += parseInt(item.amount) * parseInt(item.price)
     })
     totalPriceText.innerText = `Total Price: ${total} :-`
 }
 
 export const saveToLocalStorage = () => {
-    localStorage.setItem(LOCAL_STORAGE_KEY_WISHLIST, JSON.stringify(itemsInBasket))
+    localStorage.setItem(LOCAL_STORAGE_KEY_WISHLIST, JSON.stringify(itemsInCart))
 }
